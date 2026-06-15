@@ -8,6 +8,9 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import DashboardPage from './pages/dashboard/DashboardPage';
 import { DepartmentListPage } from './pages/departments/DepartmentListPage';
+import { DesignationListPage } from './pages/designations/DesignationListPage';
+import { EmployeeListPage } from './pages/employees/EmployeeListPage';
+import { EmployeeDetailPage } from './pages/employees/EmployeeDetailPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -52,6 +55,30 @@ function App() {
             element={
               <ProtectedRoute>
                 <DepartmentListPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/designations"
+            element={
+              <ProtectedRoute>
+                <DesignationListPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/employees"
+            element={
+              <ProtectedRoute>
+                <EmployeeListPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/employees/:id"
+            element={
+              <ProtectedRoute>
+                <EmployeeDetailPage />
               </ProtectedRoute>
             }
           />

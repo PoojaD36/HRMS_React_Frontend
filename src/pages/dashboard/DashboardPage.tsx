@@ -52,11 +52,25 @@ function DashboardPage() {
 
   const quickActions = [
     {
+      name: 'Add Employee',
+      icon: Users,
+      description: 'Create a new employee record',
+      color: 'bg-blue-50 text-blue-600',
+      onClick: () => navigate('/employees'),
+    },
+    {
       name: 'Add Department',
       icon: Briefcase,
       description: 'Create a new department',
       color: 'bg-purple-50 text-purple-600',
       onClick: () => navigate('/departments'),
+    },
+    {
+      name: 'Add Designation',
+      icon: GraduationCap,
+      description: 'Create a job title/position',
+      color: 'bg-green-50 text-green-600',
+      onClick: () => navigate('/designations'),
     },
   ];
 
@@ -119,13 +133,14 @@ function DashboardPage() {
           </CardHeader>
           <CardContent>
             <p className="text-blue-800 mb-4">
-              Welcome to your HRMS dashboard! Start by creating your departments:
+              Welcome to your HRMS dashboard! Set up your organization:
             </p>
             <ul className="space-y-2">
               {[
                 'Create departments for your organization',
-                'Manage department settings and status',
-                'More features coming soon...',
+                'Add designations (job titles) to each department',
+                'Add employees and assign them to departments',
+                'Manage reporting hierarchies',
               ].map((item, index) => (
                 <li key={index} className="flex items-start text-sm text-blue-700">
                   <svg
