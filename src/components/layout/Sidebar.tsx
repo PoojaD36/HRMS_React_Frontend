@@ -8,6 +8,7 @@ import {
   Settings,
   LogOut,
   X,
+  Shield,
 } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
 import { Button } from '@/components/ui/button';
@@ -24,6 +25,7 @@ interface SidebarProps {
 }
 
 const navigation: NavItem[] = [
+  { name: 'Admin', icon: Shield, href: '/admin' },
   { name: 'Dashboard', icon: Building2, href: '/dashboard' },
   { name: 'Employees', icon: Users, href: '/employees' },
   { name: 'Departments', icon: Briefcase, href: '/departments' },

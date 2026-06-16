@@ -16,6 +16,8 @@ import {
   Users,
 } from 'lucide-react';
 import { useEmployee } from '@/hooks/useEmployees';
+import { useDepartments } from '@/hooks/useDepartments';
+import { useDesignations } from '@/hooks/useDesignations';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { useState } from 'react';
@@ -37,6 +39,8 @@ export function EmployeeDetailPage() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
 
   const { data: employee, isLoading, isError, error } = useEmployee(Number(id));
+  const { data: departments = [] } = useDepartments({ per_page: 100 });
+  const { data: designations = [] } = useDesignations({ per_page: 100 });
 
   const handleEdit = () => {
     setFormOpen(true);
@@ -232,8 +236,8 @@ export function EmployeeDetailPage() {
         open={formOpen}
         onClose={handleCloseForm}
         editingEmployee={employee}
-        departments={[]}
-        designations={[]}
+        departments={departments}
+        designations={designations}
       />
 
       {/* Delete Confirmation Dialog */}

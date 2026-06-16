@@ -11,6 +11,7 @@ import { DepartmentListPage } from './pages/departments/DepartmentListPage';
 import { DesignationListPage } from './pages/designations/DesignationListPage';
 import { EmployeeListPage } from './pages/employees/EmployeeListPage';
 import { EmployeeDetailPage } from './pages/employees/EmployeeDetailPage';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -42,6 +43,14 @@ function App() {
           />
 
           {/* Protected Routes */}
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/dashboard"
             element={
